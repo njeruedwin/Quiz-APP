@@ -44,7 +44,7 @@ function calculateScore(score){
 
 
 //extending the score controllers
-module.exports = createCoreController('api::score.score', ({ strapi }) => {
+module.exports = createCoreController('api::score.score', ({ strapi }) => ({
 
     //extending the create controller
     async create(ctx) {
@@ -100,7 +100,7 @@ module.exports = createCoreController('api::score.score', ({ strapi }) => {
             ctx.response.status = 500;
             return {error : {message : 'There was a problem scoring your answer'}}
         }
-    }
+    },
 
     //extending the findOne controller
     async findOne(ctx) {
@@ -120,7 +120,7 @@ module.exports = createCoreController('api::score.score', ({ strapi }) => {
             ctx.response.status = 500;
             return { error : { message : 'There was a problem fetching your score.'}}
         }
-    }
+    },
 
     //extend the find score controller
     async find(ctx) {
@@ -143,9 +143,9 @@ module.exports = createCoreController('api::score.score', ({ strapi }) => {
         }
     }
 
-    
 
 
-} );
+
+}));
 
 //commit 
