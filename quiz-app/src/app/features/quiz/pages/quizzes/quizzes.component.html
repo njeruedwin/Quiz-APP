@@ -1,1 +1,15 @@
-<p>quizzes works!</p>
+<div class="flex-grow-1 vw-95 d-flex flex-column align-items-center">
+    <app-title title="Take a Quiz" subtitle="Test your Knowledge"></app-title>
+    <div *ngIf="quizzes$ | async as quizzes" class="vw-75 d-flex align-items-center justify-content-center flex-wrap">
+        <div *ngFor="let quiz of quizzes" class="align-self-start m-2 card quiz-card">
+            <div class="card-body d-flex flex-column  flex-grow-1">
+                <h5 class="card-title font-weight-bold">{{quiz.name}}</h5>
+                <p class="card-text">{{quiz.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush  flex-shrink-1">
+                <li class="list-group-item">Questions: {{quiz.questions.length}}</li>
+                <li class="list-group-item"><a [routerLink]="['/quiz', quiz.id]" class="btn btn-sm">Take Quiz</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,22 @@
-<p>quiz works!</p>
+<div *ngIf="quiz" class="d-flex flex-column align-items-center">
+    <app-title [title]="quiz.name" [subtitle]="quiz.description"></app-title>
+  
+    <form class="d-flex flex-column" [formGroup]="quizForm" *ngIf="quiz.questions.length > 0" (ngSubmit)="score()">
+        <ngb-carousel [animation]="false" [interval]="0" [wrap]="false">
+            <ng-template ngbSlide *ngFor="let question of quiz.questions; index as no">
+                <div class="picsum-img-wrapper">
+                    <app-question [question]="question" [number]="no" (setAnswer)="setAnswerValue($event)">
+                    </app-question>
+                    <input type="hidden" [formControlName]="question.id.toString()" />
+                </div>
+            </ng-template>
+        </ngb-carousel>
+        <button class="btn btn-dark mx-auto m-4 btn-lg app-bg-light-purple" [disabled]="!quizForm.valid">Submit</button>
+    </form>
+    <div *ngIf="quiz.questions.length === 0" class="card app-bg-light-purple m-2">
+        <div class="card-body d-flex flex-column align-items-center">
+            <h4 class="font-weight-normal text-center mb-3">This quiz has no questions.</h4>
+            <a routerLink="/" class="btn btn-sm app-bg-purple">See More Quizzes</a>
+        </div>
+    </div>
+</div>

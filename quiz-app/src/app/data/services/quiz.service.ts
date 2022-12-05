@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment/environment';
 import {HttpClient} from '@angular/common/http'
+import { Quiz } from '../models/quiz';
+import { Score } from '../models/score';
+import { UserAnswer } from '../models/user-answer';
 
 @Injectable({
   providedIn: 'root'

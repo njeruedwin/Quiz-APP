@@ -92,7 +92,7 @@ module.exports = createCoreController('api::score.score', ({ strapi }) => ({
 
             }
 
-            const questionsCount = quiz.questions.length;
+            const questionCount = quiz.questions.length;
             delete quiz.questions;
 
             return { questionCount, scoreTotal, quiz, score}

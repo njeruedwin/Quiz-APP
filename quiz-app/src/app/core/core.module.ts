@@ -8,7 +8,8 @@ import { RouterModule } from '@angular/router';
   declarations: [HeaderComponent, NotFoundComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    
   ],
   exports :[
     HeaderComponent,
